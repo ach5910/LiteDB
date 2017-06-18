@@ -1,0 +1,124 @@
+BASIC FUNCTIONALITY
+-B+ Tree store the tables and points to files where data can be found
+-Hash Tables to point to ID's in B+ Tree for sorting tables by different columns
+-Hash Tables run on seperate process and pass ID upstream to B+ Tree for Query desired return data
+-Store all data on memory until size exceeds x -size where in a file system is then created
+-An update to Tables and/or files will then have to run appropriate updates on querying Hash Tables
+-Socket -> Sever -> Client
+-When initializing a Table the user must state if a column can be used as a secondary index
+
+ex.
+TABLE - Users
+id | first_name | last_name | age | photo (BLOB)
+------------------------------------------------
+0  | Aaron		| Hunt		| 25  | 092347883...
+------------------------------------------------
+1  | Brodie		| Schroeder | 23  | 234879814...
+------------------------------------------------
+2  | John 		| Smith		| 21  | 234234235...
+...
+
+Hash Table - first_name
+Aaron -> 0, Brodie -> 1, John -> 2 ....
+
+Hash Table - last_name
+Hunt -> 0, Schroeder -> 1, Smith -> 2 ....
+
+Hash Table - age
+25 -> 0, 23 -> 1, 21 -> 2 ...
+
+Hash Tabke - photo
+No Hash Table for photo b/c Users will never be sorted by such column
+
+hash_fucnt(Aaron) = 5;
+5 -> nodes = 1; [0] -> 0, [1] -> 6;
+
+
+Hashing - Pros
+
+
+Hashing - Cons
+-Hashing is generally better as retreiving records having a specified g_value of the key. Not good for range queries.
+-PostgreSQL supports hash indices, but discourages use due to poor performance.
+-Oracle supports static hash organization, but not hash indices.
+
+B+Trees - Pros
+-SQLServer supports only B+Trees
+-Automatically reorganizes itself with small, local, changes,
+in the face of insertions and deletions.
+-Reorganization of entire file is not required to maintain
+performance.
+-No file degradation problem
+-Good space utilization as intermediary nodes contain only pointer to the records and only leaf nodes contain records. Space needed for pointers are very less compared to records.
+-Suitable for partial and range search
+-Since all the leaf nodes are at equal distance, the time for I/O fetch is much less. Hence the performance of the tree will also increase
+
+B+Trees - Cons
+-(Minor)Extra insertion and deletion overhead, space overhead.
+- If there is any rearrangement of nodes while insertion or deletion, then it would be an overhead. It takes little effort, time and space. But this disadvantage can be ignored compared to the speed of traversal
+
+Accecptable Commands aka Main Functions
+-SELECT
+-DELETE
+-INSERT
+-UPDATE
+-CREATE
+-DROP
+
+Child Functions
+-FROM
+-WHERE
+
+SELECT
+-2nd column -> * or any column. NOT MULTIPLE FIELDS, FUCK YOU PARSE YOUR OWN SHIT
+-3rd FROM -> From function
+
+DELETE
+-2nd FROM -> From function
+
+INSERT
+-2nd INTO
+-3rd g_table name
+-4th VALUES
+-5th all columns associated with given g_table
+
+UPDATE
+-2nd g_table name
+-3rd SET
+-4th column=values. ONLY ACCEPT ONE COLUMN CHANGE AT A TIME
+-5th WHERE -> WHERE FUNCTION
+
+FROM
+-FROM
+-g_table name
+-WHERE -> Where function
+
+WHERE
+-WHERE
+-column=g_value. ACCEPT MULTIPLE VALUE ENTRIES
+
+MAY 2ND - TODO
+--------------
+---DONE---Implement Header file that includes g_table name, fields and their corresponding data types
+---DONE---Validate input for new tables and fields based upon their given data types
+---DONE---CREATE TABLE
+---DONE---DROP TABLE
+---DONE---Get rid of error function calls and change them to return error string to user
+-Implement RollBack functionality
+-Multiple Threading??
+-B+Trees?? Viable Option?? Priority status??
+
+MAY 3RD - TODO
+--------------
+---DONE---Append Created g_table to linked list instantly
+---DONE---Can't insert fields that are more than one word. Ex. Las Vegas won't parsed correctly. NEEDS A SOLUTION
+-Allow more data type when creating g_table (bool, float, currency, timestamp on insertioninser?)
+-Implement more SQL commands (ORDERBY, COUNT, SHOW, DISP, JOIN??)
+-DROP and CREATE DATABASES??
+-Return more then one field??
+-Allow for ranging with AND/OR KeyWords
+---DONE---Refrag code into proper directories
+-Beging removing shitty code (global variable abuse)
+-Implement RollBack functionality
+-Multiple Threading??
+-B+Trees?? Viable Option?? Priority status??

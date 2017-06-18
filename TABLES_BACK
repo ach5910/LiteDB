@@ -1,0 +1,5 @@
+USERS,4,f_name=char(3~25),l_name=char(3~25),age=int(0~150)
+LOCATION,4,city=char(4~25),state=char(2~2),zip=int(0~99999)
+GALLERY,3,user=char(3~25),date=char(8~16)
+HOUSE,5,color=char(4~16),floors=int(1~10),bathrooms=int(1~10),street=char(3~25)
+DATAPLAN,5,provider=char(2~20),cost=int(0~100),data=int(0~50),phone=char(0~25)
