@@ -1,4 +1,4 @@
-# ft_db
+# LiteDB
 
 INSTALLATION
 - Clone repostitory
@@ -49,7 +49,7 @@ INSTRUCTIONS
   - CREATE TABLE [new table name] [field name]=[char or int]([lower bound]~[upper bound]), ...
   - Setting the fields are all one string and are terminated by an ',' if more fields follow
     - ex. CREATE TABLE teams name=char(5\~25), players=int(20\~30)
-      This will create a table named TEAMS with a char field called name where entries must have a string length between
+      - This will create a table named TEAMS with a char field called name where entries must have a string length between
       5 and 25, and another field name called players where the entries must be between 20 and 30
   - Setting the fields is what the validation check will compare against when an INSERT or UPDATE command is entered
   
