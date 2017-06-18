@@ -70,7 +70,7 @@ Child Functions
 -WHERE
 
 SELECT
--2nd column -> * or any column. NOT MULTIPLE FIELDS, FUCK YOU PARSE YOUR OWN SHIT
+-2nd column -> * or any column. 
 -3rd FROM -> From function
 
 DELETE
