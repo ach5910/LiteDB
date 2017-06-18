@@ -13,21 +13,21 @@ INSTRUCTIONS
 
   WHERE:
   - A valid WHERE clause is appended the to the end of the command in this format
-    WHERE [valid field name] = [data value]
-    WHERE [valid field name] < [data value]
-    WHERE [valid field name] > [data value]
-    WHERE [valid field name] < [first limit] AND > [second limit]
-    WHERE [valid field name] > [first limit] OR < [second limit]
+    - WHERE [valid field name] = [data value]
+    - WHERE [valid field name] < [data value]
+    - WHERE [valid field name] > [data value]
+    - WHERE [valid field name] < [first limit] AND > [second limit]
+    - WHERE [valid field name] > [first limit] OR < [second limit]
   - Limits must be of the same data type as the field name
   
 - If the WHERE clause is not added then the command will effect then entire table
 - The followed commands are supported and are all case insensitive
-  SELECT
-  UPDATE
-  INSERT
-  DELETE
-  CREATE
-  DROP
+  - SELECT
+  - UPDATE
+  - INSERT
+  - DELETE
+  - CREATE
+  - DROP
   
   SELECT:
   - SELECT [valid field name][* to return all fields][id] FROM [table name]
